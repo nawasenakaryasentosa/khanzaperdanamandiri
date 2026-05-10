@@ -1,253 +1,389 @@
-export default function CompanyWebsite() {
-  return (
-    <div className="min-h-screen bg-white text-gray-800 font-sans">
-      {/* Navbar */}
-      <header className="fixed top-0 left-0 right-0 bg-white shadow z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-          <h1 className="text-2xl font-bold text-orange-600">PT MAJU KONSTRUKSI</h1>
-          <nav className="hidden md:flex gap-6 text-sm font-medium">
-            <a href="#home" className="hover:text-orange-600">Home</a>
-            <a href="#about" className="hover:text-orange-600">Tentang</a>
-            <a href="#services" className="hover:text-orange-600">Layanan</a>
-            <a href="#portfolio" className="hover:text-orange-600">Proyek</a>
-            <a href="#contact" className="hover:text-orange-600">Kontak</a>
-          </nav>
-        </div>
-      </header>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PT Maju Konstruksi</title>
 
-      {/* Hero */}
-      <section
-        id="home"
-        className="h-screen flex items-center justify-center bg-gradient-to-r from-orange-500 to-red-600 text-white px-6"
-      >
-        <div className="text-center max-w-3xl">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Solusi Profesional Konstruksi & Lift Kargo
-          </h2>
-          <p className="text-lg md:text-xl mb-8 text-orange-100">
-            Melayani pekerjaan konstruksi, pemasangan lift barang, paving block,
-            renovasi gedung, dan pekerjaan sipil dengan kualitas terbaik.
-          </p>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <a
-              href="#contact"
-              className="bg-white text-orange-600 px-8 py-4 rounded-2xl font-semibold shadow hover:scale-105 transition"
-            >
-              Hubungi Kami
-            </a>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-            <a
-              href="#portfolio"
-              className="border border-white px-8 py-4 rounded-2xl font-semibold hover:bg-white hover:text-orange-600 transition"
-            >
-              Lihat Proyek
-            </a>
-          </div>
-        </div>
-      </section>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
+      color: #222;
+      line-height: 1.6;
+    }
 
-      {/* About */}
-      <section id="about" className="py-24 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop"
-              alt="Company"
-              className="rounded-3xl shadow-xl"
-            />
-          </div>
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
 
-          <div>
-            <h3 className="text-4xl font-bold mb-6 text-gray-900">
-              Tentang Perusahaan
-            </h3>
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-            <p className="text-gray-600 leading-8 mb-6">
-              PT Maju Konstruksi adalah perusahaan yang bergerak di bidang
-              konstruksi, pemasangan lift kargo, pekerjaan sipil, dan renovasi.
-              Kami berkomitmen memberikan hasil pekerjaan terbaik dengan standar
-              keselamatan dan kualitas tinggi.
-            </p>
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
 
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              <div className="bg-white p-6 rounded-2xl shadow">
-                <h4 className="text-3xl font-bold text-orange-600">10+</h4>
-                <p className="text-gray-600 mt-2">Tahun Pengalaman</p>
-              </div>
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ff5a1f;
+    }
 
-              <div className="bg-white p-6 rounded-2xl shadow">
-                <h4 className="text-3xl font-bold text-orange-600">120+</h4>
-                <p className="text-gray-600 mt-2">Proyek Selesai</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
 
-      {/* Services */}
-      <section id="services" className="py-24 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold mb-4">Layanan Kami</h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Kami menyediakan berbagai layanan konstruksi dan teknik untuk
-              kebutuhan industri maupun gedung.
-            </p>
-          </div>
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Lift Kargo",
-                desc: "Pemasangan dan maintenance lift barang berkualitas.",
-              },
-              {
-                title: "Konstruksi Gedung",
-                desc: "Pekerjaan konstruksi gedung profesional dan tepat waktu.",
-              },
-              {
-                title: "Paving & Jalan",
-                desc: "Pemasangan paving block dan pekerjaan jalan.",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-gray-50 p-8 rounded-3xl shadow hover:shadow-2xl transition"
-              >
-                <div className="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center text-2xl mb-6">
-                  🏗️
-                </div>
+    nav ul li a:hover {
+      color: #ff5a1f;
+    }
 
-                <h4 className="text-2xl font-bold mb-4">{item.title}</h4>
-                <p className="text-gray-600 leading-7">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #ff5a1f, #d7263d);
+      color: white;
+      padding: 20px;
+    }
 
-      {/* Portfolio */}
-      <section id="portfolio" className="py-24 px-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold mb-4">Proyek Kami</h3>
-            <p className="text-gray-600">
-              Dokumentasi beberapa proyek yang telah kami kerjakan.
-            </p>
-          </div>
+    .hero h1 {
+      font-size: 60px;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop",
-              "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop",
-            ].map((img, i) => (
-              <div
-                key={i}
-                className="overflow-hidden rounded-3xl shadow-lg bg-white"
-              >
-                <img
-                  src={img}
-                  alt="Project"
-                  className="h-64 w-full object-cover hover:scale-110 transition duration-500"
-                />
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 18px;
+      margin-bottom: 35px;
+    }
 
-                <div className="p-6">
-                  <h4 className="text-2xl font-bold mb-2">
-                    Proyek Konstruksi {i + 1}
-                  </h4>
-                  <p className="text-gray-600">
-                    Pekerjaan konstruksi dan instalasi dengan hasil profesional.
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      margin: 5px;
+    }
 
-      {/* CTA */}
-      <section className="py-24 bg-orange-600 text-white text-center px-6">
-        <div className="max-w-4xl mx-auto">
-          <h3 className="text-4xl md:text-5xl font-bold mb-6">
-            Siap Bekerja Sama Dengan Kami?
-          </h3>
+    .btn-primary {
+      background: white;
+      color: #ff5a1f;
+    }
 
-          <p className="text-orange-100 text-lg mb-8">
-            Hubungi kami sekarang untuk konsultasi dan penawaran harga terbaik.
-          </p>
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
 
-          <a
-            href="https://wa.me/6281234567890"
-            className="bg-white text-orange-600 px-8 py-4 rounded-2xl font-bold inline-block hover:scale-105 transition"
-          >
-            Chat WhatsApp
-          </a>
-        </div>
-      </section>
+    .btn-outline {
+      border: 2px solid white;
+      color: white;
+    }
 
-      {/* Contact */}
-      <section id="contact" className="py-24 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-          <div>
-            <h3 className="text-4xl font-bold mb-6">Kontak Kami</h3>
+    .btn-outline:hover {
+      background: white;
+      color: #ff5a1f;
+    }
 
-            <div className="space-y-6 text-gray-700">
-              <div>
-                <h4 className="font-bold">Alamat</h4>
-                <p>Jl. Contoh No. 123, Indonesia</p>
-              </div>
+    section {
+      padding: 100px 0;
+    }
 
-              <div>
-                <h4 className="font-bold">WhatsApp</h4>
-                <p>+62 812-3456-7890</p>
-              </div>
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
 
-              <div>
-                <h4 className="font-bold">Email</h4>
-                <p>info@perusahaan.com</p>
-              </div>
-            </div>
-          </div>
+    .section-title h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
 
-          <div className="bg-gray-50 p-8 rounded-3xl shadow">
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Nama"
-                className="w-full p-4 rounded-2xl border"
-              />
+    .section-title p {
+      color: #666;
+    }
 
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-full p-4 rounded-2xl border"
-              />
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      align-items: center;
+    }
 
-              <textarea
-                placeholder="Pesan"
-                rows="5"
-                className="w-full p-4 rounded-2xl border"
-              ></textarea>
+    .about img {
+      width: 100%;
+      border-radius: 20px;
+    }
 
-              <button
-                type="submit"
-                className="w-full bg-orange-600 text-white p-4 rounded-2xl font-bold hover:bg-orange-700 transition"
-              >
-                Kirim Pesan
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
+    .services-grid,
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-8 text-center">
-        <p>
-          © 2026 PT Maju Konstruksi. All Rights Reserved.
-        </p>
-      </footer>
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card h3 {
+      margin: 15px 0;
+      color: #ff5a1f;
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #ff5a1f, #d7263d);
+      color: white;
+      text-align: center;
+      border-radius: 20px;
+      padding: 60px 20px;
+    }
+
+    .contact-box {
+      background: #f7f7f7;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .wa-button {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 28px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">PT MAJU KONSTRUKSI</div>
+
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#services">Layanan</a></li>
+          <li><a href="#portfolio">Proyek</a></li>
+          <li><a href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
     </div>
-  );
-}
+  </header>
+
+  <section class="hero" id="home">
+    <div>
+      <h1>Solusi Profesional Konstruksi & Lift Kargo</h1>
+
+      <p>
+        Melayani pekerjaan konstruksi, pemasangan lift barang,
+        paving block, renovasi gedung, dan pekerjaan sipil dengan kualitas terbaik.
+      </p>
+
+      <a href="#contact" class="btn btn-primary">Hubungi Kami</a>
+      <a href="#portfolio" class="btn btn-outline">Lihat Proyek</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>Tentang Kami</h2>
+        <p>Perusahaan profesional bidang konstruksi dan teknik</p>
+      </div>
+
+      <div class="about">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" alt="Tentang Kami">
+
+        <div>
+          <h2>PT Maju Konstruksi</h2>
+          <p>
+            Kami adalah perusahaan yang bergerak di bidang konstruksi,
+            pekerjaan sipil, pemasangan lift kargo, paving block,
+            dan renovasi bangunan dengan pengalaman profesional.
+          </p>
+
+          <br>
+
+          <p>
+            Mengutamakan kualitas pekerjaan, keselamatan kerja,
+            dan ketepatan waktu dalam setiap proyek.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="background:#f7f7f7;">
+    <div class="container">
+      <div class="section-title">
+        <h2>Layanan Kami</h2>
+        <p>Layanan profesional untuk kebutuhan proyek Anda</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="card">
+          <h3>🏗️ Lift Kargo</h3>
+          <p>Pemasangan dan maintenance lift barang profesional.</p>
+        </div>
+
+        <div class="card">
+          <h3>🏢 Konstruksi Gedung</h3>
+          <p>Pembangunan gedung dan renovasi berkualitas.</p>
+        </div>
+
+        <div class="card">
+          <h3>🛣️ Paving & Jalan</h3>
+          <p>Pekerjaan paving block dan jalan lingkungan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <h2>Proyek Kami</h2>
+        <p>Beberapa proyek yang telah kami kerjakan</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="card portfolio-card">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop" alt="Project">
+          <h3>Proyek Gedung</h3>
+          <p>Pekerjaan konstruksi gedung modern dan profesional.</p>
+        </div>
+
+        <div class="card portfolio-card">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop" alt="Project">
+          <h3>Paving Block</h3>
+          <p>Pekerjaan paving area industri dan lingkungan.</p>
+        </div>
+
+        <div class="card portfolio-card">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" alt="Project">
+          <h3>Lift Barang</h3>
+          <p>Instalasi lift kargo untuk kebutuhan industri.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta">
+        <h2>Siap Bekerja Sama Dengan Kami?</h2>
+        <br>
+        <p>Hubungi kami sekarang untuk konsultasi dan penawaran terbaik.</p>
+        <br>
+        <a href="https://wa.me/6281234567890" class="btn btn-primary">Chat WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Kontak Kami</h2>
+        <p>Silakan hubungi kami untuk informasi lebih lanjut</p>
+      </div>
+
+      <div class="contact-box">
+        <h3>PT MAJU KONSTRUKSI</h3>
+        <br>
+        <p>📍 Jl. Contoh No.123 Indonesia</p>
+        <p>📞 +62 812-3456-7890</p>
+        <p>✉️ info@perusahaan.com</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 PT Maju Konstruksi - All Rights Reserved</p>
+  </footer>
+
+  <a class="wa-button" href="https://wa.me/6281234567890">💬</a>
+
+</body>
+</html>
